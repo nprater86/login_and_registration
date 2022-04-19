@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    gap: 25px;
+    margin-top: 50px;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 25px;
+}
+
+.column p {
+    width: 200px;
+}
+
+.registerBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    background-color: pink;
+    border-radius: 15px;
+    gap: 15px;
+    width: 200px;
+}
+
+.registerBox form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.registerBox button {
+    width: 100px;
+    align-self: center;
+}
+
+.inputWrap{
+    display: flex;
+    flex-direction: column;
+}
+
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    background-color: lightblue;
+    border-radius: 15px;
+    gap: 15px;
+    width: 200px;
+}
+
+.loginBox form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.loginBox button {
+    width: 100px;
+    align-self: center;
+}
+
+/* dashboard styles */
+
+header {
+    width: 1000px;
+    height: 75px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid black;
+}
+
+.headerNav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+}
+
+.messages h3 {
+    border-bottom: 1px solid black;
+}
+
+.messageView {
+    display: flex;
+    justify-content: space-between;
+}
+
+.messageView button {
+    border: none;
+}
+
+.messageView button:hover {
+    cursor: pointer;
+}
+
+.sendMessage {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sendMessage h3 {
+    border-bottom: 1px solid black;
+}
+
+.send {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.send form {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.send form textarea {
+    resize: none;
+}
+
+.dropDown {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    gap: 5px;
+}
+
+

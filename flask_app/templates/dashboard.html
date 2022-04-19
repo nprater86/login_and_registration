@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static',filename='../static/css/style.css')}}">
+    <script src="https://kit.fontawesome.com/e0ad2921e4.js" crossorigin="anonymous"></script>
+    <title>Welcome!</title>
+</head>
+<body>
+    <header>
+        <h1>CodingDojo Wall</h1>
+        <div class="headerNav">
+            <h3>Welcome, {{session['first_name']}}!</h3>
+            <nav>
+                <a href="/logout">Logout</a>
+            </nav>
+        </div>
+    </header>
+    <div class="content">
+        <div class="column">
+            <div class="messages">
+                <h3>{{user_messages.messages|length}} Messages(s) for You</h3>
+                {% for message in user_messages.messages %}
+                    <div class="messageView">
+                        <div class="message">
+                            <h4>{{message.sender_fname}} said on {{message.created_at.strftime("%b %d at %I:%M %p")}}:</h3>
+                            <p>{{message.content}}</p>
+                        </div>
+                        <form action="/delete_message" method="post">
+                            <input type="hidden" name="message_id" value="{{message.id}}">
+                            <button type="submit"><i class="fa-solid fa-trash-can"></i></button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="column">
+            <div class="sendMessage">
+                <h3>Send Messages</h3>
+                <h4>You have sent {{ user_sent.messages|length }} messages</h4>
+                <div class="send">
+                    <form action="/send_message" method="post">
+                        <div class="dropDown">
+                            <select name="user_id" id="">
+                                <option value="default">--Select--</option>
+                                {% for user in users %}
+                                    <option value="{{user.id}}">{{user.first_name}}</option>
+                                {% endfor %}
+                            </select>
+                            {% with messages = get_flashed_messages(category_filter=["send_message"]) %}
+                                {% for message in messages %}
+                                    <p style="color: red">{{message}}</p>
+                                {% endfor %}
+                            {% endwith %}
+                        </div>
+                        <textarea name="content" id="" cols="30" rows="5"></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
