@@ -41,7 +41,7 @@ def register():
         session['email'] = new_user.email
 
         #redirect to the success page
-        return redirect('/success')
+        return redirect('/dashboard')
 
     #if the user submitted their login information:
     if request.form["which_form"] == 'login':
